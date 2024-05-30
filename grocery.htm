@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grocery store">
+    <title>Tailwind grocery</title>
+    <link rel="stylesheet" href="grocery.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    
+    <div class="container min-h-screen bg-center bg-[url('images/Image.png')] bg-cover min-w-full px-7 py-5 relative lg:px-28 overflow-y-hidden	ease-in duration-500" id="container">
+        <nav class="flex items-center justify-between ">
+            <img src="images/logo.png" alt="logo" class="w-40 cursor-pointer">
+            <ul class="text-center hidden sm:flex">
+                <li class="list-none inline-block px-5 "><a href="#" class="no-underline text-white px-2 cursor-pointer ">Home</a></li>
+                <li class="list-none inline-block px-5 md:px-10"><a href="#" class="no-underline text-white px-2 cursor-pointer ">About</a></li>
+                <li class="list-none inline-block px-5 md:px-10"><a href="#" class="no-underline text-white px-2 cursor-pointer ">Features</a></li>
+                <li class="list-none inline-block px-5"><a href="#" class="no-underline text-white px-2 cursor-pointer ">Contact</a></li>
+
+            </ul>
+
+            
+            <div class="flex items-center">
+                <img src="images/profile-icon-png-898.png" class="w-8 cursor-pointer ">
+                <img src="images/cart.png" class="w-8 cursor-pointer mx-4">
+
+                <img src="images/menu-icon-19350.png" class="w-8 cursor-pointer mt-2 sm:hidden" id="menu">
+            </div>
+            
+
+        </nav>
+        
+
+        <ul class="p-2 bg-slate-500 rounded-xl w-40 fixed top-0 right-0 h-full hidden transform translate-x-full transition-transform ease-in-out duration-300" id="menubar">
+            <img src="images/remove-icon-png-7115.png" class="w-6 cursor-pointer float-right " id="cancel">
+            <li class="list-none  px-5 border-b-2 mt-7 cursor-pointer hover:bg-slate-200"><a href="#" class="no-underline text-white px-2  text-xl">Home</a></li>
+            <li class="list-none  px-5 border-b-2 mt-2 cursor-pointer hover:bg-slate-200"><a href="#" class="no-underline text-white px-2  text-xl  ">About</a></li>
+            <li class="list-none  px-5 border-b-2 mt-2 cursor-pointer hover:bg-slate-200"><a href="#" class="no-underline text-white px-2  text-xl">Features</a></li>
+            <li class="list-none  px-5  mt-2 cursor-pointer hover:bg-slate-200"><a href="#" class="no-underline text-white px-2  text-xl ">Contact</a></li>
+
+        </ul>
+
+
+        <div class="text-white mt-16 lg:mt-48 max-w-xl">
+            <h1 class="text-6xl font-semibold leading-normal">Groceries <br> delivery in <span class="font-light">15 mins</span></h1>
+            <p>Groceries offer a wide range of products, including fresh products, meats,
+                dairy, baked goods and non-perishable items.Get a new name here
+            </p>
+
+
+            <div class="mt-10">
+                <a href="#" class="bg-yellow-300 rounded-3xl py-3 px-8 font-medium inline-block
+                 mr-4 hover:bg-transparent hover:border-yellow-300 hover:text-white duration-300
+                 hover:border border border-transparent">Order Now</a>
+                <a href="#">Download App <span class="text-lg inline-block rotate-90" id="span">&#10148</span></a>
+                <a href="#" class="ml-6 border py-5 px-4 rounded-lg border-white " onclick="signIn()">Continue with google
+                    <svg class="w-3 inline-block" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                        <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <img src="images/grocery-image.png" alt="grocery" class="w-full xl:w-1/2 xl:absolute top-12 right-0">
+    </div>
+
+    <footer>
+        <div class="inner_footer">
+            <div class="logo_container">
+                <img src="images/logo.png">
+            </div>
+
+            <div class="footer_third">
+                <h1>Need Help?</h1>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer_third">
+                <h1>More</h1>
+                <a href="#">Donate</a>
+                <a href="#">Brochures</a>
+                <a href="#">Ratings</a>
+                <a href="#">Governance</a>
+            </div>
+            <div class="footer_third">
+                <h1>Follow us</h1>
+                <li><a href="#"><i class="fa-brands fa-facebook"></i></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-square-twitter"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                
+            </div>
+        </div>
+    </footer>
+
+    <script src="gorcery.js"></script>
+    <script src="https://kit.fontawesome.com/157ed8b001.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
