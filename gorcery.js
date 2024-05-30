@@ -66,25 +66,39 @@ function checkVisibilityAndDisableButtons() {
 
 
 
-signupButton.addEventListener('click', () => {
-  signup.classList.add('block');
-  signup.classList.remove('hidden');
-  checkVisibilityAndDisableButtons();
-});
+// signupButton.addEventListener('click', () => {
+//   signup.classList.add('block');
+//   signup.classList.remove('hidden');
+//   checkVisibilityAndDisableButtons();
+// });
 
-loginButton.addEventListener('click', () => {
-  login.classList.add('block');
-  login.classList.remove('hidden');
-  checkVisibilityAndDisableButtons();
-});
+// loginButton.addEventListener('click', () => {
+//   login.classList.add('block');
+//   login.classList.remove('hidden');
+//   checkVisibilityAndDisableButtons();
+// });
 
-closeButtons.forEach(cose => {
-  cose.addEventListener('click', () => {
-    signup.classList.add('hidden');
-    login.classList.add('hidden');
-    signup.classList.remove('block');
-    login.classList.remove('block');
-    checkVisibilityAndDisableButtons();
-  })
+// closeButtons.forEach(cose => {
+//   cose.addEventListener('click', () => {
+//     signup.classList.add('hidden');
+//     login.classList.add('hidden');
+//     signup.classList.remove('block');
+//     login.classList.remove('block');
+//     checkVisibilityAndDisableButtons();
+//   })
   
+// });
+
+
+const profile = document.querySelector('#profile');
+const profileButton = document.querySelector('#profile_button');
+const profileContainer = document.querySelector('#profile_container');
+
+profile.addEventListener('click', () => {
+  profileContainer.classList.add('block');
+  profileContainer.classList.remove('hidden');
+});
+profileButton.addEventListener('click', () => {
+  profileContainer.classList.remove('block');
+  profileContainer.classList.add('hidden');
 });
