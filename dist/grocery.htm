@@ -9,8 +9,42 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+
+    <div class="container min-h-screen bg-center bg-[url('images/Image.png')] bg-cover min-w-full px-7 py-5 relative lg:px-28 overflow-y-hidden	ease-in duration-500" id="container1">
+        <nav class="flex items-center justify-between ">
+            <img src="images/logo.png" alt="logo" class="w-40 cursor-pointer"> 
+            
+            <div class="flex ">
+                <button class="text-slate-200 bg-lime-400 py-2 px-4 rounded-xl cursor-pointer " id="signup_button">Signup</button>
+                <button class="text-slate-200 bg-lime-400 py-2 px-4 rounded-xl cursor-pointer mx-2" id="login_button">Login</button>
+            </div>
+        </nav>
+        
+        <div class="text-white">
+            <div class="mt-10 flex justify-center content-center"> 
+                <form class="bg-slate-800 w-80 p-4 rounded-2xl mt-32 hidden" id="signup">
+                    <span class="float-right cursor-pointer" id="close"><i class="fa-solid fa-xmark"></i></span>
+                    <h2 class="text-2xl font-bold ">Welcome to grocify</h2>
+                    <p class="font-bold text-lg italic text-lime-400">Signup</p>
+                    <input type="email" required placeholder="Enter email" class="w-full h-10 my-5 rounded-xl px-3 outline-0 placeholder:italic text-black" id="signup-email">
+                    <input type="password" placeholder="Enter password" required class="w-full h-10  rounded-xl px-3 outline-0 placeholder:italic text-black" id="signup-password">
+                    <button class="text-slate-200 bg-lime-400 py-2 px-6 rounded-xl cursor-pointer my-4 w-full hover:bg-lime-900 duration-300">Signup</button>
+                </form>
+
+                <form class="bg-slate-800 w-80 p-4 rounded-2xl mx-3 hidden mt-32" id="login">
+                    <span class="float-right cursor-pointer" id="close"><i class="fa-solid fa-xmark"></i></span>
+                    <h2 class="text-2xl font-bold ">Welcome to grocify</h2>
+                    <p class="font-bold text-lg italic text-lime-400">Login</p>
+                    <input type="email" required placeholder="Enter email" class="w-full h-10 my-5 rounded-xl px-3 outline-0 placeholder:italic text-black" id="login-email">
+                    <input type="password" placeholder="Enter password" required class="w-full h-10  rounded-xl px-3 outline-0 placeholder:italic text-black" id="login-password">
+                    <button class="text-slate-200 bg-lime-400 py-2 px-6 rounded-xl cursor-pointer my-4 w-full hover:bg-lime-900 duration-300">Login</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
     
-    <div class="container min-h-screen bg-center bg-[url('images/Image.png')] bg-cover min-w-full px-7 py-5 relative lg:px-28 overflow-y-hidden	ease-in duration-500" id="container">
+    <div class="container min-h-screen bg-center bg-[url('images/Image.png')] bg-cover min-w-full px-7 py-5 relative lg:px-28 overflow-y-hidden	ease-in duration-500 hidden" id="container">
         <nav class="flex items-center justify-between ">
             <img src="images/logo.png" alt="logo" class="w-40 cursor-pointer">
             <ul class="text-center hidden sm:flex">
@@ -34,8 +68,8 @@
 
         <div class="bg-slate-700 p-3 top-16 right-20 rounded-xl absolute z-10 hidden" id="profile_container">
             <span class="float-right cursor-pointer text-lime-100" id="profile_button"><i class="fa-solid fa-xmark"></i></span>
-            <p class="text-lime-100 text-lg font-bold">thompsoneregha00@gmail.com</p>
-            <p class="text-lg text-lime-100 my-2 cursor-pointer"><span class=""><i class="fa-solid fa-right-from-bracket"></i></span>Logout</p>
+            <p class="text-lime-100 text-lg font-bold" id="email"></p>
+            <p class="text-lg text-lime-100 my-2 cursor-pointer" id="logout"><span class=""><i class="fa-solid fa-right-from-bracket"></i></span>Logout</p>
         </div>
         
 
@@ -97,6 +131,7 @@
 
     <script src="gorcery.js"></script>
     <script src="https://kit.fontawesome.com/157ed8b001.js" crossorigin="anonymous"></script>
+    <script src="bundle.js"></script>
 
 </body>
 </html>
