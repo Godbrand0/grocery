@@ -33,11 +33,26 @@ onAuthStateChanged(auth, (user) => {
     } else {
         setupUI()
     }
-  });
+});
+
+
+const signupLoader = document.querySelector('#signup-loader');
+const loginLoader = document.querySelector('#login-loader');
+
+ // Show loader
+const showLoader = (loader) => {
+    loader.style.visibility = 'visible';
+};
+
+// Hide loader
+const hideLoader = (loader) => {
+    loader.style.visibility = 'hidden';
+};
 
 const signupForm = document.querySelector('#signup');
 signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    showLoader(signupLoader);
 
     const email = signupForm['signup-email'].value;
     const password = signupForm['signup-password'].value;
@@ -48,7 +63,7 @@ signupForm.addEventListener('submit', (e) => {
            
         })
         .then(() => {
-           
+            hideLoader(signupLoader);
         
             signupForm.reset();
         })
@@ -58,12 +73,13 @@ signupForm.addEventListener('submit', (e) => {
 const loginForm = document.querySelector('#login');
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    showLoader(loginLoader);
 
     const email = loginForm['login-email'].value; 
     const password = loginForm['login-password'].value;
     signInWithEmailAndPassword(auth, email, password)
     .then((cred) => {
-        
+        hideLoader(loginLoader);
         loginForm.reset()
     })
 
