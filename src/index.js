@@ -1,11 +1,12 @@
-import {initializeApp} from 'firebase/app'
+import { initializeApp } from 'firebase/app';
 
 import{
     getAuth,
     createUserWithEmailAndPassword,
     signOut,signInWithEmailAndPassword,
-    onAuthStateChanged,
-} from 'firebase/auth'
+    onAuthStateChanged, sendEmailVerification,
+} from 'firebase/auth';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyB_hJDCwPnTfmAOSKHn2_7FObuhhQldzXA",
@@ -29,13 +30,12 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
       setupUI(user)
       const uid = user.uid;
+      checkEmailVerification()
       // ...
     } else {
-        setupUI()
+      setupUI()
     }
-});
-
-
+  });
 const signupLoader = document.querySelector('#signup-loader');
 const loginLoader = document.querySelector('#login-loader');
 
@@ -49,6 +49,14 @@ const hideLoader = (loader) => {
     loader.style.visibility = 'hidden';
 };
 
+const checkEmailVerification = () => {
+    auth.currentUser.reload().then(() => {
+      setupUI(auth.currentUser);
+    }).catch((error) => {
+      console.error("Error reloading user: ", error);
+    });
+};
+
 const signupForm = document.querySelector('#signup');
 signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -56,18 +64,20 @@ signupForm.addEventListener('submit', (e) => {
 
     const email = signupForm['signup-email'].value;
     const password = signupForm['signup-password'].value;
-    
-    
     createUserWithEmailAndPassword(auth, email, password)
-        .then((cred) => {
-           
-        })
-        .then(() => {
-            hideLoader(signupLoader);
+    .then((cred) => {
+        return sendEmailVerification(auth.currentUser); // Send email verification
+    })
+    .then(() => {
+        alert("Email verification link sent!");
+        hideLoader(signupLoader);
+        signupForm.reset();
         
-            signupForm.reset();
-        })
-       
+    })
+    .catch((error) => {
+        console.error("Error signing up: ", error);
+        hideLoader(signupLoader);
+    });
 });
 
 const loginForm = document.querySelector('#login');

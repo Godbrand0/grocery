@@ -93,6 +93,11 @@ closeButtons.forEach(cose => {
 const profile = document.querySelector('#profile');
 const profileButton = document.querySelector('#profile_button');
 const profileContainer = document.querySelector('#profile_container');
+const userEmail = document.querySelector('#email');
+const verificationStatus = document.querySelector('#verify');
+const container = document.querySelector('#container');
+const container_1 = document.querySelector('#container1');
+const profile_container = document.querySelector('#profile_container');
 
 profile.addEventListener('click', () => {
   profileContainer.classList.add('block');
@@ -104,22 +109,33 @@ profileButton.addEventListener('click', () => {
 });
 
 
-const container = document.querySelector('#container');
-const container_1 = document.querySelector('#container1');
-const user_email = document.querySelector('#email');
+
+
+
+const checkVerification = () => {
+  
+  if (verificationStatus.innerHTML === 'Verified') {
+    verificationStatus.classList.remove('text-red-600');
+    verificationStatus.classList.add('text-lime-500');
+  } else {
+    verificationStatus.classList.remove('text-lime-500');
+    verificationStatus.classList.add('text-red-600');
+  }
+};
+
+
+
 
 const setupUI = (user) =>{
   //togge ui
   if (user) {
    //account info
-    
-      
-    const email = `
-      ${user.email}
-    
-    `;
-    user_email.innerHTML = email;
-    
+   
+
+   userEmail.innerHTML = `${user.email}`;
+   verificationStatus.innerHTML = user.emailVerified ? 'Verified' : 'Not Verified';
+
+   checkVerification();
 
     container.classList.add('block');
     container.classList.remove('hidden');
@@ -134,5 +150,5 @@ const setupUI = (user) =>{
     container_1.classList.remove('hidden'); 
   }
  
-      
+  
 }
